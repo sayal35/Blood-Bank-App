@@ -169,7 +169,7 @@ const getHospitalController = async (req, res) => {
 const getOrganizationController = async (req, res) => {
   try {
     const donar = req.body.userId;
-    console.log("donar", donar);
+
     const orgId = await inventoryModel.distinct("organization", { donar });
     //find org
     const organizations = await userModel.find({ _id: { $in: orgId } });
@@ -261,6 +261,27 @@ const getInventoryHospitalController = async (req, res) => {
   }
 };
 
+const getAllOrganizationsController = async (req, res) => {
+  try {
+    // Assuming "role" field differentiates user types
+    const organizations = await userModel.find({ role: "organization" });
+
+    return res.status(200).send({
+      success: true,
+      message: "All organizations fetched successfully",
+      organizations,
+    });
+  } catch (error) {
+    return res.status(500).send({
+      success: false,
+      message: "Error while fetching organizations",
+      error,
+    });
+  }
+};
+
+module.exports = getAllOrganizationsController;
+
 module.exports = {
   createInventoryController,
   getInventoryController,
@@ -270,4 +291,5 @@ module.exports = {
   getOrganizationForHospitalController,
   getInventoryHospitalController,
   getRecentInventoryController,
+  getAllOrganizationsController,
 };

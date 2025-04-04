@@ -4,7 +4,7 @@ import API from "../../services/API";
 import moment from "moment";
 import { useSelector } from "react-redux";
 
-const Organization = () => {
+const AffiliatedOrg = () => {
   const { user } = useSelector((state) => state.auth);
   const [data, setData] = useState([]);
 
@@ -12,13 +12,15 @@ const Organization = () => {
   const getOrg = async () => {
     try {
       if (user?.role === "donar") {
-        const { data } = await API.get("/inventory/get-allorganization");
+        const { data } = await API.get("/inventory/get-organization");
         if (data?.success) {
           setData(data?.organizations);
         }
       }
       if (user?.role === "hospital") {
-        const { data } = await API.get("/inventory/get-allorganization");
+        const { data } = await API.get(
+          "/inventory/get-organization-for-hospital"
+        );
         if (data?.success) {
           setData(data?.organizations);
         }
@@ -59,4 +61,4 @@ const Organization = () => {
   );
 };
 
-export default Organization;
+export default AffiliatedOrg;

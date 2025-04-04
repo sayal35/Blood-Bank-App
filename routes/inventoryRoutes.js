@@ -8,6 +8,7 @@ const {
   getOrganizationForHospitalController,
   getInventoryHospitalController,
   getRecentInventoryController,
+  getAllOrganizationsController,
 } = require("../controllers/inventoryController");
 const authMiddleware = require("../middlewares/authMiddleware");
 
@@ -42,6 +43,13 @@ router.get("/get-hospital", authMiddleware, getHospitalController);
 
 //get organization
 router.get("/get-organization", authMiddleware, getOrganizationController);
+
+//get-all organization
+router.get(
+  "/get-allorganization",
+  authMiddleware,
+  getAllOrganizationsController
+);
 
 //get org for hospital
 router.get(

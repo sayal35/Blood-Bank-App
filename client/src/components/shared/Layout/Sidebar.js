@@ -85,26 +85,48 @@ const Sidebar = () => {
             </div>
           )}
           {user?.role === "hospital" && (
-            <div
-              className={`menu-item ${
-                location.pathname === "/consumer" && "active"
-              }`}
-            >
-              <i className="fa-sharp fa-solid fa-building-ngo">
-                <Link to="/consumer"> Consumer</Link>
-              </i>
-            </div>
+            <>
+              <div
+                className={`menu-item ${
+                  location.pathname === "/consumer" && "active"
+                }`}
+              >
+                <i className="fa-sharp fa-solid fa-building-ngo">
+                  <Link to="/consumer"> Consumer</Link>
+                </i>
+              </div>
+              <div
+                className={`menu-item ${
+                  location.pathname === "/affiliatedorg" && "active"
+                }`}
+              >
+                <i className="fa-sharp fa-solid fa-building-ngo">
+                  <Link to="/affiliatedorg"> Affiliated Organizations</Link>
+                </i>
+              </div>
+            </>
           )}
           {user?.role === "donar" && (
-            <div
-              className={`menu-item ${
-                location.pathname === "/donation" && "active"
-              }`}
-            >
-              <i className="fa-sharp fa-solid fa-building-ngo">
-                <Link to="/donation"> Donations</Link>
-              </i>
-            </div>
+            <>
+              <div
+                className={`menu-item ${
+                  location.pathname === "/donation" && "active"
+                }`}
+              >
+                <i className="fa-sharp fa-solid fa-building-ngo">
+                  <Link to="/donation"> Donations</Link>
+                </i>
+              </div>
+              <div
+                className={`menu-item ${
+                  location.pathname === "/affiliatedorg" && "active"
+                }`}
+              >
+                <i className="fa-sharp fa-solid fa-building-ngo">
+                  <Link to="/affiliatedorg"> Affiliated Organizations</Link>
+                </i>
+              </div>
+            </>
           )}
 
           {/* {userMenu.map((menu) => {

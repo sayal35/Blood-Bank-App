@@ -12,7 +12,7 @@ const Donation = () => {
       const { data } = await API.post("/inventory/get-inventory-hospital", {
         filters: {
           inventoryType: "in",
-          donaar: user?._id,
+          donar: user?._id,
         },
       });
 
@@ -29,6 +29,7 @@ const Donation = () => {
   }, []);
   return (
     <Layout>
+      <h1>Donation made by you</h1>
       <div className="conatiner mt-4">
         <table className="table">
           <thead>

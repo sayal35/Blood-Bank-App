@@ -28,17 +28,6 @@ export const handleRegister = (
 ) => {
   e.preventDefault();
   try {
-    console.log({
-      name,
-      role,
-      email,
-      password,
-      organizationName,
-      hospitalName,
-      phone,
-      address,
-      website,
-    });
     store.dispatch(
       userRegister({
         name,
